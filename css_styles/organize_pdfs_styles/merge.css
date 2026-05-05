@@ -1,0 +1,40 @@
+/* Merge PDF page specific */
+.merge-upload-area {
+  margin: 12px 0 10px;
+  padding: 14px 14px 10px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.24);
+  background: rgba(5, 7, 22, 0.7);
+  text-align: center;
+}
+
+.merge-upload-area input[type="file"] {
+  margin-bottom: 6px;
+  color: #e5e6ff;
+}
+
+.merge-hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.merge-file-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.merge-file-list li {
+  font-size: 13px;
+  color: #e5e6ff;
+  padding: 4px 0;
+}
+
+.merge-status {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-sub);
+}

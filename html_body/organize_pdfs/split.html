@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Split PDF | Extract Pages Online - BALRAM TECH HUB</title>
+  <meta name="description"
+    content="Split PDF files online. Extract specific pages or page ranges from your PDF documents for free." />
+  <meta name="keywords" content="split pdf, extract pages, pdf splitter, separate pdf pages, free pdf tool" />
+
+  <meta property="og:title" content="Split PDF | Extract Pages - BALRAM TECH HUB" />
+  <meta property="og:description" content="Split PDF files and extract pages easily online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pdfcraft.com/split" />
+
+  <link rel="stylesheet" href="../../css_styles/base.css" />
+  <link rel="stylesheet" href="../../css_styles/layout.css" />
+  <script src="../../js_logic/config.js"></script>
+  <!-- Retain original specific styles if needed, but we try to replace them -->
+  <link rel="stylesheet" href="../../css_styles/organize_pdfs_styles/split.css" />
+
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  </script>
+  <script src="../../js_logic/organize_pdfs/split.js" defer></script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon">
+          <span class="brand-dot"></span>
+          <span class="brand-letter">Q</span>
+        </div>
+        <span class="brand-text">BALRAM TECH HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../../html_body/organize_pdfs/merge.html" class="nav-link">Merge</a>
+        <a href="../../html_body/organize_pdfs/split.html" class="nav-link active">Split</a>
+        <a href="../../html_body/optimize_pdfs/compress.html" class="nav-link">Compress</a>
+        <a href="../../convert.html" class="nav-link">Convert</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" type="button">All tools ▾</button>
+          <div class="mega-menu">
+            <div class="mega-column">
+              <p class="mega-heading">Organize</p>
+              <a href="split.html">Split PDF</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-text-btn" onclick="location.href='../../login.html'">Log in</button>
+      <button class="nav-primary-btn" onclick="location.href='../../signup.html'">Get Started</button>
+    </div>
+  </header>
+
+  <main class="tools-container">
+    <section class="tool-hero full-width-hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Organize PDF</p>
+        <h1>Split PDF File</h1>
+        <p class="hero-subtitle">Extract specific pages or ranges from your PDF document and save them as separate
+          files.</p>
+      </div>
+
+      <div class="tool-interface-card">
+        <!-- Step 1: Upload -->
+        <div class="upload-zone" id="uploadArea" onclick="document.getElementById('splitInput').click()">
+          <input type="file" id="splitInput" accept="application/pdf" class="file-input-hidden" />
+          <div class="upload-content">
+            <div class="upload-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="21" cy="16" r="3"></circle>
+              </svg>
+            </div>
+            <span class="upload-text">Select PDF file</span>
+            <span class="upload-subtext">or drop file here</span>
+          </div>
+        </div>
+
+        <!-- Step 2: Page Previews (Hidden initially) -->
+        <div id="previewArea" style="display:none; padding: 20px;">
+          <h3 style="margin-bottom: 20px; font-weight: 700; color:var(--text-main);">Click pages to select</h3>
+          <div id="pagesGrid" class="imgpdf-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; max-height: 800px; overflow-y: auto; padding: 20px; border-radius: 12px; background: rgba(0,0,0,0.02); border:1px dashed rgba(0,0,0,0.1);">
+            <!-- Thumbnails will be injected here -->
+          </div>
+        </div>
+
+        <p id="splitFileStatus" class="status-message" style="margin: 20px 0; font-size: 1rem; color: var(--text-main); font-weight: 600;"></p>
+
+        <!-- Step 3: Options (Hidden initially) -->
+        <div id="splitOptionsPanel" style="display:none; padding: 0 40px 40px;">
+          <div class="workspace-layout" style="display: block;">
+            <div class="workspace-sidebar"
+              style="width: 100%; max-width: 600px; margin: 0 auto; background: transparent; border: none; padding: 0;">
+              <div class="control-group">
+                <label class="control-label" style="display:flex; align-items:center; justify-content:space-between;">
+                  <span>Selected Page Range</span>
+                  <div style="display:flex; gap:8px;">
+                    <button id="selectAllBtn" class="btn-ghost" style="padding:2px 8px; font-size:11px;">Select All</button>
+                    <button id="clearAllBtn" class="btn-ghost" style="padding:2px 8px; font-size:11px;">Clear</button>
+                  </div>
+                </label>
+                <input type="text" id="pageRange" class="custom-input" placeholder="e.g. 1, 3, 5-10" />
+                <p style="font-size: 0.9rem; color: var(--text-sub); margin-top: 8px;">You can select pages above or type the range manually.</p>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Output Filename</label>
+                <input type="text" id="outputName" class="custom-input" placeholder="split-result" />
+              </div>
+
+              <button id="splitButton" class="btn-primary big-btn" style="width: 100%; margin-top: 20px;">Extract & Download PDF</button>
+              <p id="splitStatus" class="status-message"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="content-section">
+      <div class="content-wrapper">
+        <h2>How to split PDF pages</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Upload PDF</h3>
+            <p>Select the file you want to split from your device.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Select Pages</h3>
+            <p>Click on the page thumbnails you wish to extract from your document.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <h3>Download</h3>
+            <p>Your selected pages will be saved as a new PDF document immediately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt-bg">
+      <div class="content-wrapper">
+        <div class="faq-block">
+          <h2>Common Questions</h2>
+          <details class="faq-item">
+            <summary>Can I extract a single page?</summary>
+            <p>Yes, simply click on the thumbnail of the page you want to extract.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Will the quality change?</summary>
+            <p>No, we extract pages exactly as they are in the original document without any loss in quality.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Overview</a>
+        <a href="#">Web tools</a>
+        <a href="#">Desktop beta</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#">Docs</a>
+        <a href="#">Status</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

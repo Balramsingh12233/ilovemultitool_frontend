@@ -1,0 +1,279 @@
+/* auth.css - Split Screen Design */
+
+:root {
+  --bg-color: #f4f7f6;
+  --text-color: #333;
+  --primary-color: #FF4444;
+  /* PDF Red */
+  --primary-hover: #e03a3a;
+  --secondary-bg: #fff;
+  --border-color: #ddd;
+  --input-bg: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* --- Split Layout --- */
+.auth-split-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* LEFT: Form */
+.auth-left {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  max-width: 600px;
+  /* Limit width on large screens */
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+  position: relative;
+}
+
+/* RIGHT: Illustration (Hidden on mobile) */
+.auth-right {
+  flex: 1.5;
+  background-color: #f9f9fb;
+  /* Light grey/off-white */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .auth-right {
+    display: none;
+    /* Hide on tablet/mobile */
+  }
+
+  .auth-left {
+    max-width: 100%;
+  }
+}
+
+/* --- Header / Brand --- */
+.auth-header {
+  margin-bottom: 60px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ff4d4d, #b30000);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-family: serif;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* --- Form Wrapper --- */
+.auth-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  /* Center horizontally in left panel */
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #222;
+  text-align: center;
+}
+
+/* --- Social Buttons --- */
+.social-login {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #444;
+  transition: all 0.2s;
+}
+
+.social-btn:hover {
+  background: #f0f0f0;
+}
+
+.social-btn.facebook {
+  color: #1877F2;
+  border-color: #dbe7f6;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Real Form --- */
+.auth-form-real {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: #888;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+input {
+  width: 100%;
+  padding: 14px 14px 14px 40px;
+  /* Space for icon */
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #fdfdfd;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1);
+}
+
+.auth-options {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgot-link {
+  color: #FF4444;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.auth-submit-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.auth-submit-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.auth-footer-text,
+.legal-text {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 20px;
+}
+
+.legal-text {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.auth-footer-text a,
+.legal-text a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* --- Right Side Graphics --- */
+.auth-graphic {
+  margin-bottom: 40px;
+}
+
+.auth-promo {
+  max-width: 400px;
+}
+
+.auth-promo h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.auth-promo p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}

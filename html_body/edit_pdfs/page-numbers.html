@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Page Numbers to PDF Online | Free & Secure - BALRAM TECH HUB</title>
+    <meta name="description"
+        content="Easily add page numbers to your PDF documents online for free. Custom position, style, and format. No software installation required. Secure and fast." />
+    <meta name="keywords"
+        content="add page numbers to pdf, page numbering pdf, insert page numbers pdf, number pdf pages, free pdf tools, online pdf editor" />
+
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Add Page Numbers to PDF Online | BALRAM TECH HUB" />
+    <meta property="og:description"
+        content="Insert page numbers into your PDF with custom positioning and styling. Free, fast, and secure online tool." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pdfcraft.com/page-numbers" />
+    <meta property="og:image" content="https://pdfcraft.com/og-image.jpg" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css_styles/base.css" />
+    <link rel="stylesheet" href="../../css_styles/layout.css" />
+    <script src="../../js_logic/config.js"></script>
+    <link rel="stylesheet" href="../../css_styles/edit_pdfs_styles/page-numbers.css" />
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <script src="../../js_logic/edit_pdfs/page-numbers.js" defer></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <a href="../../index.html" class="brand">
+                <div class="brand-icon"><span class="brand-dot"></span><span class="brand-letter">Q</span></div>
+                <span class="brand-text">BALRAM TECH HUB</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../html_body/organize_pdfs/merge.html" class="nav-link">Merge</a>
+                <a href="../../html_body/organize_pdfs/split.html" class="nav-link">Split</a>
+                <a href="../../html_body/optimize_pdfs/compress.html" class="nav-link">Compress</a>
+                <a href="../../convert.html" class="nav-link">Convert</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" type="button">All tools ▾</button>
+                    <!-- Mega Menu Implementation Here (Simplified for this file) -->
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <p class="mega-heading">Edit</p>
+                            <a href="../edit_pdfs/page-numbers.html">Page Numbers</a>
+                            <a href="../edit_pdfs/watermark.html">Watermark</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="nav-right">
+            <button class="nav-text-btn" onclick="location.href='../../login.html'">Log in</button>
+            <button class="nav-primary-btn" onclick="location.href='../../signup.html'">Get Started</button>
+        </div>
+    </header>
+
+    <main class="tools-container">
+        <!-- Hero / Tool Section -->
+        <section class="tool-hero full-width-hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Edit PDF</p>
+                <h1>Add Page Numbers to PDF</h1>
+                <p class="hero-subtitle">Insert numbers into your document with ease. Choose position, dimensions, and
+                    typography.</p>
+            </div>
+
+            <!-- Tool Interface -->
+            <div class="tool-interface-card">
+                <!-- Step 1: Upload (Visible initially) -->
+                <div class="upload-zone" id="uploadArea">
+                    <input type="file" id="pdfInput" accept="application/pdf" class="file-input-hidden" />
+                    <div class="upload-content" onclick="document.getElementById('pdfInput').click()">
+                        <div class="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                        </div>
+                        <span class="upload-text">Select PDF file</span>
+                        <span class="upload-subtext">or drop PDF here</span>
+                    </div>
+                </div>
+
+                <!-- Step 2: Workspace (Hidden initially) -->
+                <div id="workspace" class="workspace-layout" style="display:none;">
+                    <div class="workspace-sidebar">
+                        <h3>Page Options</h3>
+
+                        <div class="control-group">
+                            <label for="position" class="control-label">Position</label>
+                            <div class="select-wrapper">
+                                <select id="position" class="custom-select">
+                                    <option value="bottom-center" selected>Bottom Center</option>
+                                    <option value="bottom-left">Bottom Left</option>
+                                    <option value="bottom-right">Bottom Right</option>
+                                    <option value="top-center">Top Center</option>
+                                    <option value="top-left">Top Left</option>
+                                    <option value="top-right">Top Right</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="startNum" class="control-label">Start Number</label>
+                            <input type="number" id="startNum" value="1" min="1" class="custom-input">
+                        </div>
+
+                        <div class="control-group">
+                            <label for="fontSize" class="control-label">Font Size</label>
+                            <input type="number" id="fontSize" value="12" min="8" max="72" class="custom-input">
+                        </div>
+
+                        <div class="control-group">
+                            <label for="format" class="control-label">Number Format</label>
+                            <div class="select-wrapper">
+                                <select id="format" class="custom-select">
+                                    <option value="n" selected>1, 2, 3...</option>
+                                    <option value="p_n">Page 1, Page 2...</option>
+                                    <option value="p_of_n">Page 1 of N...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button id="processBtn" class="btn-primary big-btn">
+                            Add Page Numbers
+                        </button>
+                        <p id="statusMsg" class="status-message"></p>
+                    </div>
+
+                    <div class="workspace-preview">
+                        <div class="preview-container">
+                            <canvas id="previewCanvas" class="preview-canvas"></canvas>
+                            <!-- Overlay for position indicator if needed -->
+                        </div>
+                        <p class="preview-caption">Preview of first page</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content Section: How it works -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <h2>How to add page numbers to PDF</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h3>Upload your PDF</h3>
+                        <p>Select your file from your device or drag and drop it into the upload area.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h3>Customize formatting</h3>
+                        <p>Choose where you want the page numbers to appear, select the font size, and pick a numbering
+                            format.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h3>Download PDF</h3>
+                        <p>Click "Add Page Numbers" and download your newly numbered PDF document instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content Section: Features & FAQ -->
+        <section class="content-section alt-bg">
+            <div class="content-wrapper">
+                <div class="text-block">
+                    <h2>Why use BALRAM TECH HUB for page numbering?</h2>
+                    <p>
+                        BALRAM TECH HUB offers a fast, free, and secure way to number your PDF pages.
+                        Whether you need to number a legal document, a thesis, or a manuscript,
+                        our tool gives you control over the placement and style.
+                        All processing happens in your browser (for some tools) or securely on our servers, ensuring
+                        your privacy.
+                    </p>
+                </div>
+
+                <div class="faq-block">
+                    <h2>Frequently Asked Questions</h2>
+                    <details class="faq-item">
+                        <summary>Is it free to add page numbers to PDF?</summary>
+                        <p>Yes, BALRAM TECH HUB's page numbering tool is completely free to use for basic tasks.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can I choose where the page number starts?</summary>
+                        <p>Absolutely via the "Start Number" option, you can define if the count begins at 10, 100, or
+                            any other number.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Does this work on Mac and Windows?</summary>
+                        <p>Yes, because BALRAM TECH HUB is a web-based tool, it works on any operating system including
+                            Windows, Mac, Linux, and mobile devices.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#">Overview</a>
+                <a href="#">Web tools</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BALRAM TECH HUB. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

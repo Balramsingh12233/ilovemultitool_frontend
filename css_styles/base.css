@@ -1,0 +1,36 @@
+:root {
+  --bg-body: #f8f9fc;
+  --bg-hero: linear-gradient(135deg, #ffffff 0%, #f0f2f9 100%);
+  --bg-panel: rgba(255, 255, 255, 0.9);
+  --border-panel: rgba(0, 0, 0, 0.05);
+  --text-main: #1a1c2d;
+  --text-sub: #5c5f7d;
+  --accent-primary: #ff5252;
+  --accent-primary-soft: rgba(255, 82, 82, 0.1);
+  --nav-height: 72px;
+  --radius-lg: 24px;
+  /* Soft, professional light-theme shadows */
+  --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+  --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+  --shadow-glow: 0 0 25px rgba(255, 82, 82, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-main: "Outfit", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-body);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}

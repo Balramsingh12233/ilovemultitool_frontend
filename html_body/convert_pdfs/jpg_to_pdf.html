@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Images to PDF – BALRAM TECH HUB</title>
+
+  <!-- Only for this tool -->
+  <link rel="stylesheet" href="../../css_styles/base.css" />
+  <link rel="stylesheet" href="../../css_styles/layout.css" />
+  <link rel="stylesheet" href="../../css_styles/convert_pdfs_styles/jpg_to_pdf.css" />
+
+  <!-- PDF-LIB -->
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="../../js_logic/convert_pdfs/jpg_to_pdf.js" defer></script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+  <!-- Top Navigation (simple, but connects to rest of site) -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          <span class="brand-dot"></span>
+          <span class="brand-letter">Q</span>
+        </div>
+        <span class="brand-text">BALRAM TECH HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="merge.html" class="nav-link">Merge</a>
+        <a href="split.html" class="nav-link">Split</a>
+        <a href="compress.html" class="nav-link">Compress</a>
+        <a href="convert.html" class="nav-link active">Convert</a>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <button class="apps-button">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </button>
+      <button class="nav-text-btn">Log in</button>
+      <button class="nav-primary-btn">Get Started</button>
+    </div>
+  </header>
+
+  <!-- Main two-column layout (like ilovepdf) -->
+  <main class="imgpdf-layout">
+    <!-- LEFT: upload + thumbnails -->
+    <section class="imgpdf-left">
+      <h2 class="section-title">IMAGES</h2>
+
+      <div class="imgpdf-upload-row">
+        <label class="imgpdf-drop">
+          <input type="file" id="imagesInput" accept="image/jpeg,image/png" multiple hidden />
+          <span class="imgpdf-drop-main">Select images</span>
+          <span class="imgpdf-drop-sub">or drop them here</span>
+        </label>
+
+        <div class="imgpdf-actions-row">
+          <button type="button" class="imgpdf-mini-btn" id="btnSortByName">A–Z</button>
+          <button type="button" class="imgpdf-mini-btn">G Drive</button>
+          <button type="button" class="imgpdf-mini-btn">Dropbox</button>
+        </div>
+      </div>
+
+      <div id="imagesGrid" class="imgpdf-grid empty">
+        <p class="imgpdf-empty-text">No images yet. Add JPG or PNG files.</p>
+      </div>
+    </section>
+
+    <!-- RIGHT: options panel -->
+    <aside class="imgpdf-right">
+      <h2 class="imgpdf-options-title">Image to PDF options</h2>
+
+      <div class="imgpdf-option-group">
+        <p class="imgpdf-option-label">Page orientation</p>
+        <div class="imgpdf-toggle-row">
+          <button type="button" class="imgpdf-toggle active" data-orientation="portrait" id="btnPortrait">
+            Portrait
+          </button>
+          <button type="button" class="imgpdf-toggle" data-orientation="landscape" id="btnLandscape">
+            Landscape
+          </button>
+        </div>
+      </div>
+
+      <div class="imgpdf-option-group">
+        <label class="input-label">
+          Page size
+          <select id="pageSize">
+            <option value="A4" selected>A4 (210 × 297 mm)</option>
+            <option value="LETTER">US Letter</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="imgpdf-option-group">
+        <p class="imgpdf-option-label">Margin</p>
+        <div class="imgpdf-toggle-row">
+          <button type="button" class="imgpdf-toggle active" data-margin="none" id="btnMarginNone">
+            No margin
+          </button>
+          <button type="button" class="imgpdf-toggle" data-margin="small" id="btnMarginSmall">
+            Small
+          </button>
+          <button type="button" class="imgpdf-toggle" data-margin="big" id="btnMarginBig">
+            Big
+          </button>
+        </div>
+      </div>
+
+      <div class="imgpdf-option-group">
+        <label class="input-label">
+          Output filename
+          <input type="text" id="imagesOutputName" placeholder="images-to-pdf" />
+        </label>
+      </div>
+
+      <div class="imgpdf-option-group">
+        <label class="remember">
+          <input type="checkbox" id="mergeAll" checked />
+          <span>Merge all images in one PDF file</span>
+        </label>
+      </div>
+
+      <button id="imagesToPdfButton" class="btn-primary imgpdf-convert-btn">
+        Convert to PDF
+      </button>
+
+      <p id="imagesConvertStatus" class="split-status"></p>
+    </aside>
+  </main>
+</body>
+
+</html>

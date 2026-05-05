@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reorder PDF Pages | Organize PDF Online - BALRAM TECH HUB</title>
+  <meta name="description"
+    content="Rearrange/Reorder pages in your PDF files online. Drag and drop pages to organize your document easily." />
+  <meta name="keywords" content="reorder pdf, organize pdf pages, rearrange pdf, sort pdf pages" />
+
+  <meta property="og:title" content="Reorder PDF Pages | BALRAM TECH HUB" />
+  <meta property="og:description" content="Organize your PDF pages easily online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pdfcraft.com/organize-pages" />
+
+  <link rel="stylesheet" href="../../css_styles/base.css" />
+  <link rel="stylesheet" href="../../css_styles/layout.css" />
+  <script src="../../js_logic/config.js"></script>
+  <link rel="stylesheet" href="../../css_styles/convert_pdfs_styles/jpg_to_pdf.css" />
+
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  </script>
+  <script src="../../js_logic/convert_pdfs/organize-pages.js" defer></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon">
+          <span class="brand-dot"></span>
+          <span class="brand-letter">Q</span>
+        </div>
+        <span class="brand-text">BALRAM TECH HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="../../html_body/organize_pdfs/merge.html" class="nav-link">Merge</a>
+        <a href="../../html_body/organize_pdfs/split.html" class="nav-link">Split</a>
+        <a href="../../html_body/optimize_pdfs/compress.html" class="nav-link">Compress</a>
+        <a href="../../convert.html" class="nav-link">Convert</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" type="button">All tools ▾</button>
+          <div class="mega-menu">
+            <div class="mega-column">
+              <p class="mega-heading">Organize</p>
+              <a href="organize-pages.html">Reorder pages</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-text-btn" type="button" onclick="location.href='../../login.html'">Log in</button>
+      <button class="nav-primary-btn" type="button" onclick="location.href='../../signup.html'">Get Started</button>
+    </div>
+  </header>
+
+  <main style="padding: 40px 20px;">
+    <div class="hero-panel" style="margin-bottom: 30px; text-align: center;">
+      <p class="hero-eyebrow">Organize PDF</p>
+      <h1>Reorder PDF Pages</h1>
+      <p class="hero-subtitle">Drag and drop thumbnails to rearrange pages in your PDF document.</p>
+    </div>
+
+    <div class="imgpdf-layout tool-interface-card"
+      style="display:flex; flex-direction:row; padding:0; overflow:hidden; max-width: 100%;">
+      <!-- LEFT: options panel -->
+      <aside class="imgpdf-right workspace-sidebar"
+        style="width: 320px; background: rgba(0,0,0,0.02); border-right: 1px solid rgba(255,255,255,0.1); border-left:none; position: static; margin: 0; padding: 24px;">
+        <h2 class="imgpdf-options-title" style="margin-top:0;">PDF Options</h2>
+
+        <div class="control-group">
+          <label class="control-label">Output filename</label>
+          <input type="text" id="imagesOutputName" placeholder="organized-pdf" class="custom-input" />
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Page Size</label>
+          <select id="pageSize" class="custom-select">
+            <option value="A4" selected>A4</option>
+            <option value="LETTER">Letter</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label class="remember">
+            <input type="checkbox" id="mergeAll" checked />
+            <span>Merge all into one file</span>
+          </label>
+        </div>
+
+        <div style="margin-top:auto;">
+          <button id="imagesToPdfButton" class="btn-primary big-btn" style="width:100%;">Convert & Download</button>
+          <p id="imagesConvertStatus" class="status-message"></p>
+        </div>
+      </aside>
+
+      <!-- RIGHT: upload + thumbnails -->
+      <section class="imgpdf-left" style="flex:1; padding:30px; border-right:none; background: #fff;">
+        <div class="imgpdf-upload-row" style="display:flex; align-items:flex-end; gap:20px; justify-content:flex-start;">
+          <label class="imgpdf-drop" style="width:300px; padding:15px; border-radius:12px; height:120px; display:flex; flex-direction:column; justify-content:center;">
+            <input type="file" id="imagesInput" multiple accept="image/jpeg,image/png,application/pdf" hidden>
+            <span class="upload-content">
+              <div class="upload-icon" style="margin-bottom:5px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </div>
+              <span class="imgpdf-drop-main" style="display:block; font-size:14px; font-weight:700;">Add Files</span>
+              <span class="imgpdf-drop-sub" style="font-size:12px;">Drag and drop here</span>
+            </span>
+          </label>
+
+          <div class="imgpdf-actions-row" style="margin-bottom: 20px;">
+            <button type="button" class="btn-ghost" id="btnSortByName" style="height:40px; padding:0 20px;">A–Z Sort</button>
+          </div>
+        </div>
+
+        <div id="imagesGrid" class="imgpdf-grid empty" style="min-height: 500px; margin-top: 30px; border: 1px dashed rgba(0,0,0,0.1); background: rgba(0,0,0,0.02); border-radius: 12px; padding: 40px;">
+          <p class="imgpdf-empty-text">Thumbnail workspace will appear here.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="content-section">
+    <div class="content-wrapper">
+      <h2>How to organize pages</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">1</span>
+          <h3>Upload</h3>
+          <p>Upload PDF or images.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">2</span>
+          <h3>Arrange</h3>
+          <p>Drag duplicate or remove pages as needed.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">3</span>
+          <h3>Download</h3>
+          <p>Get your organized PDF file.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Overview</a>
+        <a href="#">Web tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

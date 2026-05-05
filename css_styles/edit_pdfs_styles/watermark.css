@@ -1,0 +1,124 @@
+/* Watermark Tool Styles */
+
+.watermark-upload-area {
+    border: 2px dashed #ccc;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.watermark-upload-area:hover {
+    border-color: var(--primary-color);
+}
+
+.watermark-workspace {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 2-column layout for workspace */
+@media (min-width: 768px) {
+    .watermark-workspace {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.options-panel {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.preview-panel {
+    flex: 1;
+    border: 1px solid #ddd;
+    min-height: 400px;
+    background: #525659;
+    /* PDF viewer bg color */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-canvas {
+    max-width: 100%;
+    max-height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group input[type="range"] {
+    width: 100%;
+}
+
+.color-picker {
+    display: flex;
+    gap: 10px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.color-option.selected {
+    border-color: #333;
+    transform: scale(1.1);
+}
+
+.grid-position {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 100px;
+    margin-top: 5px;
+}
+
+.grid-cell {
+    height: 30px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+.grid-cell:hover {
+    background: #eee;
+}
+
+.grid-cell.selected {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}

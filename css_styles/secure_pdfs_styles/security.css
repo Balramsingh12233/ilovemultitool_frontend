@@ -1,0 +1,87 @@
+/* Security Tools Shared Styles */
+
+.security-upload-area {
+    border: 2px dashed #ccc;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    background: #fafafa;
+    transition: all 0.2s;
+}
+
+.security-upload-area:hover {
+    border-color: var(--primary-color);
+    background: #f0f4ff;
+}
+
+.security-workspace {
+    margin-top: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.security-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.file-info {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #eef;
+    border-radius: 6px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-icon {
+    font-size: 24px;
+}
+
+.security-status {
+    text-align: center;
+    margin-top: 15px;
+    min-height: 20px;
+    font-size: 14px;
+}
+
+.status-error {
+    color: #d32f2f;
+}
+
+.status-success {
+    color: #2e7d32;
+}

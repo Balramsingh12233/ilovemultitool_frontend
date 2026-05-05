@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compress PDF Online | Reduce File Size Free - BALRAM TECH HUB</title>
+  <meta name="description"
+    content="Reduce PDF file size online without losing quality. Fast, secure, and free PDF compressor tool." />
+  <meta name="keywords" content="compress pdf, reduce pdf size, shrink pdf, minimize pdf, free pdf compressor" />
+
+  <meta property="og:title" content="Compress PDF Online | BALRAM TECH HUB" />
+  <meta property="og:description" content="Reduce PDF file size efficiently online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pdfcraft.com/compress" />
+
+  <link rel="stylesheet" href="../../css_styles/base.css" />
+  <link rel="stylesheet" href="../../css_styles/layout.css" />
+  <script src="../../js_logic/config.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="../../js_logic/optimize_pdfs/compress.js" defer></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon"><span class="brand-dot"></span><span class="brand-letter">Q</span></div>
+        <span class="brand-text">BALRAM TECH HUB</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../html_body/organize_pdfs/merge.html" class="nav-link">Merge</a>
+        <a href="../../html_body/organize_pdfs/split.html" class="nav-link">Split</a>
+        <a href="../../html_body/optimize_pdfs/compress.html" class="nav-link active">Compress</a>
+        <a href="../../convert.html" class="nav-link">Convert</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" type="button">All tools ▾</button>
+          <div class="mega-menu">
+            <div class="mega-column">
+              <p class="mega-heading">Optimize</p>
+              <a href="compress.html">Compress PDF</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button class="nav-text-btn" onclick="location.href='../../login.html'">Log in</button>
+      <button class="nav-primary-btn" onclick="location.href='../../signup.html'">Get Started</button>
+    </div>
+  </header>
+
+  <main class="tools-container">
+    <section class="tool-hero full-width-hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Optimize PDF</p>
+        <h1>Compress PDF File</h1>
+        <p class="hero-subtitle">Significantly reduce the size of your PDF files while maintaining the best possible
+          quality.</p>
+      </div>
+
+      <div class="tool-interface-card">
+        <!-- Upload Zone -->
+        <div class="upload-zone" id="uploadArea" onclick="document.getElementById('compressInput').click()">
+          <input type="file" id="compressInput" accept="application/pdf" class="file-input-hidden" />
+          <div class="upload-content">
+            <div class="upload-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 14l6 6 6-6M10 20V4"></path>
+              </svg>
+            </div>
+            <span class="upload-text">Select PDF file</span>
+            <span class="upload-subtext">or drop file here</span>
+          </div>
+        </div>
+
+        <!-- Options Panel (Hidden by default, shown by JS) -->
+        <div id="compressOptionsPanel" style="display: none; padding: 40px;">
+          <div class="workspace-layout">
+            <!-- Sidebar: Controls -->
+            <div class="workspace-sidebar"
+              style="width: 100%; max-width: 400px; margin: 0 auto; border-right: none; background: transparent;">
+              <h3 id="compressFileStatus" style="text-align: center; display: block; width: 100%; border: none;">File
+                Selected</h3>
+
+              <div class="control-group" style="text-align: center;">
+                <p id="originalSize" style="color: #aaa; margin-bottom: 20px;">Original size: --</p>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="compressionLevel">Compression Level</label>
+                <select id="compressionLevel" class="custom-select">
+                  <option value="medium" selected>Medium Quality (Recommended)</option>
+                  <option value="high">High Compression (Smallest size, lower quality)</option>
+                  <option value="low">Low Compression (High quality, larger size)</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="targetSize">Target Size (MB) - Optional</label>
+                <input type="number" id="targetSize" class="custom-input" placeholder="e.g. 2.5" step="0.1" />
+              </div>
+
+              <button id="compressButton" class="btn-primary big-btn">Compress & Download PDF</button>
+
+              <!-- Status & Result -->
+              <div style="margin-top: 20px; text-align: center;">
+                <p id="estimatedSize" style="color: var(--accent-primary); font-weight: bold; margin-bottom: 10px;"></p>
+                <p id="compressStatus" class="status-message"></p>
+              </div>
+
+              <!-- Loader -->
+              <div id="compressLoader"
+                style="display: none; flex-direction: column; align-items: center; margin-top: 20px;">
+                <div id="lottieCompress" style="width: 100px; height: 100px;"></div>
+                <p id="compressProgressText" style="color: #fff; margin-top: 10px;">Compressing...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="content-wrapper">
+        <h2>How to compress PDF files</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Upload PDF</h3>
+            <p>Select the PDF file you want to compress from your device.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Choose Quality</h3>
+            <p>Select your desired compression level or set a target size in MB.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <h3>Download</h3>
+            <p>Get your optimized PDF immediately after processing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt-bg">
+      <div class="content-wrapper">
+        <div class="faq-block">
+          <h2>FAQ about PDF Compression</h2>
+          <details class="faq-item">
+            <summary>Does compression lower quality?</summary>
+            <p>We optimize files to balance quality and size, often making the difference indistinguishable to the human
+              eye.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How much can I reduce my file?</summary>
+            <p>It depends on the file content, but usually, we can reduce size by 40-75%.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Overview</a>
+        <a href="#">Web tools</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Adapter to hide upload area when file is selected, matching the JS expectation of showing optionsPanel
+    const uiInput = document.getElementById('compressInput');
+    const uiUpload = document.getElementById('uploadArea');
+    uiInput.addEventListener('change', () => {
+      if (uiInput.files.length > 0) {
+        uiUpload.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>

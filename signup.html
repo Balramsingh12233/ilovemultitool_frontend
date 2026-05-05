@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | BALRAM TECH HUB</title>
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="stylesheet" href="css_styles/base.css">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+  <div class="auth-split-container">
+    <!-- LEFT: Form Section -->
+    <div class="auth-left">
+      <header class="auth-header">
+        <a href="index.html" class="brand">
+          <div class="brand-icon">
+            <span class="brand-dot"></span>
+            <span class="brand-letter">Q</span>
+          </div>
+          <span class="brand-text">BALRAM TECH HUB</span>
+        </a>
+      </header>
+
+      <div class="auth-form-wrapper">
+        <h1>Create new account</h1>
+
+        <div class="social-login">
+          <button type="button" class="social-btn facebook" onclick="window.handleSocialLogin('facebook')">
+            <svg class="social-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+            Facebook
+          </button>
+          <button type="button" class="social-btn google" onclick="window.handleSocialLogin('google')">
+            <svg class="social-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M17.8 19.8L16 11.2a16 16 0 0 0-4-3.2 8.3 8.3 0 0 0-4 1c-1.8 1.4-3 3.6-3 6m0-7a8 8 0 1 1 11-5.7 8 8 0 0 1-5 2.1">
+              </path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Google
+          </button>
+        </div>
+
+        <form id="signupForm" class="auth-form-real">
+          <div class="form-group">
+            <div class="input-icon-wrapper">
+              <span class="input-icon">👤</span>
+              <input type="text" id="name" placeholder="Name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-icon-wrapper">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="email" placeholder="Email" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-icon-wrapper">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="password" placeholder="Password" required />
+            </div>
+          </div>
+
+          <button type="submit" class="auth-submit-btn bg-red">Sign up</button>
+          <p id="errorMsg" class="error-message"></p>
+
+          <p class="auth-footer-text">
+            Already removed? <a href="login.html">Log in</a>
+          </p>
+        </form>
+        <p class="legal-text">
+          By creating an account, you agree to BALRAM TECH HUB <a href="#">Terms</a> and <a href="#">Privacy</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Illustration Section -->
+    <div class="auth-right">
+      <div class="auth-graphic">
+        <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="50" y="50" width="300" height="200" rx="10" fill="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.2)" />
+          <path d="M100 100 L150 150 L200 100" stroke="#FF4444" stroke-width="4" stroke-linecap="round" />
+          <rect x="250" y="100" width="60" height="60" rx="5" fill="#FF4444" />
+          <circle cx="350" cy="220" r="40" fill="white" opacity="0.1" />
+        </svg>
+      </div>
+      <div class="auth-promo">
+        <h2>PDF tools for productive people</h2>
+        <p>BALRAM TECH HUB helps you convert, edit, e-sign, and protect PDF files quickly and easily. Enjoy a full suite
+          of
+          tools to effectively manage documents.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js_logic/config.js"></script>
+  <script>
+    const form = document.getElementById('signupForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const res = await fetch(`${window.API_BASE_URL}/api/signup`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          localStorage.setItem('user_session', JSON.stringify(data.user)); // Fallback for file://
+          window.location.href = 'index.html'; // Auto-login and redirect
+        } else {
+          errorMsg.textContent = data.error || 'Signup failed';
+        }
+      } catch (err) {
+        console.error(err);
+        errorMsg.textContent = 'Network error';
+      }
+    });
+  </script>
+</body>
+
+</html>

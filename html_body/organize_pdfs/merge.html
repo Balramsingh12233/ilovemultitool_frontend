@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merge PDF Online | Combine PDF Files Free - BALRAM TECH HUB</title>
+  <meta name="description"
+    content="Combine multiple PDF files into one document online. Fast, secure, and free PDF merger tool. No software installation needed." />
+  <meta name="keywords" content="merge pdf, combine pdf, join pdf files, merger tool online, free pdf merge" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Merge PDF Online | BALRAM TECH HUB" />
+  <meta property="og:description" content="Combine PDFs online for free. Secure, fast, and easy to use." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pdfcraft.com/merge" />
+
+  <link rel="stylesheet" href="../../css_styles/base.css" />
+  <link rel="stylesheet" href="../../css_styles/layout.css" />
+  <script src="../../js_logic/config.js"></script>
+  <!-- Specific styles if any, minimal now -->
+
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="../../js_logic/organize_pdfs/merge.js" defer></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="../../index.html" class="brand">
+        <div class="brand-icon"><span class="brand-dot"></span><span class="brand-letter">Q</span></div>
+        <span class="brand-text">BALRAM TECH HUB</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../html_body/organize_pdfs/merge.html" class="nav-link active">Merge</a>
+        <a href="../../html_body/organize_pdfs/split.html" class="nav-link">Split</a>
+        <a href="../../html_body/optimize_pdfs/compress.html" class="nav-link">Compress</a>
+        <a href="../../convert.html" class="nav-link">Convert</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" type="button">All tools ▾</button>
+          <!-- Mega Menu Implementation -->
+          <div class="mega-menu">
+            <div class="mega-column">
+              <p class="mega-heading">Organize</p>
+              <a href="merge.html">Merge PDF</a>
+              <a href="split.html">Split PDF</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button class="nav-text-btn" onclick="location.href='../../login.html'">Log in</button>
+      <button class="nav-primary-btn" onclick="location.href='../../signup.html'">Get Started</button>
+    </div>
+  </header>
+
+  <main class="tools-container">
+    <!-- Hero Section -->
+    <section class="tool-hero full-width-hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Organize PDF</p>
+        <h1>Merge PDF Files</h1>
+        <p class="hero-subtitle">Combine multiple PDFs into a single unified document. Drag & drop to reorder files
+          before merging.</p>
+      </div>
+
+      <!-- Tool Interface -->
+      <div class="tool-interface-card">
+        <!-- Upload Zone -->
+        <div class="upload-zone" id="uploadArea" onclick="document.getElementById('mergeInput').click()">
+          <input type="file" id="mergeInput" accept="application/pdf" multiple class="file-input-hidden" />
+          <div class="upload-content">
+            <div class="upload-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path>
+              </svg>
+            </div>
+            <span class="upload-text">Select PDF files</span>
+            <span class="upload-subtext">or drop files here</span>
+          </div>
+        </div>
+
+        <!-- File List & Action -->
+        <div id="fileListContainer" style="padding: 20px; display: none;">
+          <ul id="fileList" style="list-style: none; padding: 0; color: var(--text-main); margin-bottom: 20px;"></ul>
+          <button id="mergeButton" class="btn-primary big-btn" disabled>Merge PDFs</button>
+          <p id="mergeStatus" class="status-message"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="content-section">
+      <div class="content-wrapper">
+        <h2>How to merge PDF files online</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Select PDF files</h3>
+            <p>Upload two or more PDF documents you wish to combine.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Reorder files</h3>
+            <p>Drag and drop the files in the list to arrange them in your desired order.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <h3>Merge & Download</h3>
+            <p>Click "Merge PDFs" and download your single combined document.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section alt-bg">
+      <div class="content-wrapper">
+        <div class="faq-block">
+          <h2>Frequently Asked Questions</h2>
+          <details class="faq-item">
+            <summary>Is it safe to merge PDFs here?</summary>
+            <p>Yes, all file processing happens securely. Your files are deleted from our servers shortly after
+              processing.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is there a limit on file size?</summary>
+            <p>For free users, there is a generous file size limit. Premium users get extended limits.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I merge PDFs on mobile?</summary>
+            <p>Absolutely. BALRAM TECH HUB works on all devices including iOS and Android.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#">Overview</a>
+        <a href="#">Web tools</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Adapters are handled by merge.js -->
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+/* Compress PDF page specific */
+.compress-upload-area {
+  margin: 12px 0 10px;
+  padding: 14px 14px 10px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.24);
+  background: rgba(5, 7, 22, 0.7);
+  text-align: center;
+}
+
+.compress-upload-area input[type="file"] {
+  margin-bottom: 6px;
+  color: #e5e6ff;
+}
+
+.compress-hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.compress-status {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.compress-options {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(5, 7, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.compress-options .input-label {
+  margin-bottom: 10px;
+}
+
+.compress-options .input-label select {
+  margin-top: 4px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(5, 7, 22, 0.9);
+  padding: 0 14px;
+  color: var(--text-main);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.compress-options .input-label select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px rgba(255, 107, 107, 0.6);
+}
+
+.compress-options .input-label select option {
+  background: #050716;
+  color: #f6f6ff;
+}
+
+.compress-info {
+  margin: 8px 0 10px;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.compress-info p {
+  margin: 3px 0;
+}
+.compress-loader {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.lottie-box {
+  width: 64px;
+  height: 64px;
+}

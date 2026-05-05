@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unlock PDF | Remove Password Online - BALRAM TECH HUB</title>
+    <meta name="description"
+        content="Unlock password-protected PDF files instantly. Remove security and encryption from your PDFs online for free." />
+    <meta name="keywords" content="unlock pdf, remove password, decrypt pdf, open protected pdf" />
+
+    <meta property="og:title" content="Unlock PDF | BALRAM TECH HUB" />
+    <meta property="og:description" content="Remove PDF passwords securely and easily." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pdfcraft.com/unlock" />
+
+    <link rel="stylesheet" href="../../css_styles/base.css" />
+    <link rel="stylesheet" href="../../css_styles/layout.css" />
+    <script src="../../js_logic/config.js"></script>
+    <link rel="stylesheet" href="../../css_styles/secure_pdfs_styles/security.css" />
+
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="../../js_logic/secure_pdfs/unlock.js" defer></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108513927220073"
+       crossorigin="anonymous"></script></head>
+
+<body>
+    <header class="top-nav">
+        <div class="nav-left">
+            <a href="../../index.html" class="brand">
+                <div class="brand-icon">
+                    <span class="brand-dot"></span>
+                    <span class="brand-letter">Q</span>
+                </div>
+                <span class="brand-text">BALRAM TECH HUB</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="../../html_body/organize_pdfs/merge.html" class="nav-link">Merge</a>
+                <a href="../../html_body/organize_pdfs/split.html" class="nav-link">Split</a>
+                <a href="../../html_body/optimize_pdfs/compress.html" class="nav-link">Compress</a>
+                <a href="../../html_body/convert_pdfs/pdf-to-word.html" class="nav-link">Convert</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" type="button">All tools ▾</button>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <p class="mega-heading">Security</p>
+                            <a href="protect.html">Lock PDF</a>
+                            <a href="unlock.html">Unlock PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="nav-right">
+            <button class="nav-text-btn" type="button" onclick="location.href='../../login.html'">Log in</button>
+            <button class="nav-primary-btn" type="button" onclick="location.href='../../signup.html'">Get Started</button>
+        </div>
+    </header>
+
+    <main class="tools-container">
+        <section class="tool-hero full-width-hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Security Tools</p>
+                <h1>Remove Password Security</h1>
+                <p class="hero-subtitle">Enter the correct password once to remove protection and create an unlocked copy of your PDF.</p>
+            </div>
+
+            <div class="tool-interface-card">
+                <!-- Step 1: Upload -->
+                <div class="upload-zone" id="uploadArea" onclick="document.getElementById('pdfInput').click()">
+                    <input type="file" id="pdfInput" accept="application/pdf" class="file-input-hidden" />
+                    <div class="upload-content">
+                        <div class="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <span class="upload-text">Select PDF</span>
+                        <span class="upload-subtext">or drop file here</span>
+                    </div>
+                </div>
+
+                <!-- Step 2: Form (Hidden initially) -->
+                <div id="workspace" class="workspace-layout" style="display:none; justify-content:center; padding: 40px;">
+                    <div class="workspace-sidebar" style="width:100%; max-width:450px; background:transparent; border:none; padding:0;">
+                        <div class="file-info" style="margin-bottom: 24px; padding: 15px; background: rgba(0,0,0,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <span class="file-icon" style="font-size: 1.2rem;">📄</span>
+                            <span id="fileName" style="font-weight: 600; color: var(--text-main);">file.pdf</span>
+                        </div>
+
+                        <div class="security-form">
+                            <div class="control-group">
+                                <label class="control-label">Enter Current Password</label>
+                                <input type="password" id="password" placeholder="Password required to open file"
+                                    class="custom-input">
+                            </div>
+
+                            <button id="unlockBtn" class="btn-primary big-btn" style="width: 100%;">Unlock PDF</button>
+                            <p id="statusMsg" class="status-message" style="margin-top: 15px; text-align:center;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content -->
+        <section class="content-section">
+            <div class="content-wrapper">
+                <h2>How to unlock PDF</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h3>Upload</h3>
+                        <p>Upload your password-protected PDF file.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h3>Authenticate</h3>
+                        <p>Enter the password to verify owner permission.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h3>Unlock</h3>
+                        <p>Download the new unlocked version of your document.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section alt-bg">
+            <div class="content-wrapper">
+                <div class="faq-block">
+                    <h2>FAQ</h2>
+                    <details class="faq-item">
+                        <summary>Is it legal?</summary>
+                        <p>You should only remove passwords from files that you own or have permission to edit.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#">Overview</a>
+                <a href="#">Web tools</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

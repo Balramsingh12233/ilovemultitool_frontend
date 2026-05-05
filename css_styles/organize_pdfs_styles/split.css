@@ -1,0 +1,42 @@
+/* Split PDF page specific */
+.split-upload-area {
+  margin: 12px 0 10px;
+  padding: 14px 14px 10px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.24);
+  background: rgba(5, 7, 22, 0.7);
+  text-align: center;
+}
+
+.split-upload-area input[type="file"] {
+  margin-bottom: 6px;
+  color: #e5e6ff;
+}
+
+.split-hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.split-status {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.split-options {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(5, 7, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.split-options .input-label {
+  margin-bottom: 10px;
+}
+
+.split-options .input-label input {
+  margin-top: 4px;
+}
