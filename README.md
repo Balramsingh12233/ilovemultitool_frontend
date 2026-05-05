@@ -10,7 +10,7 @@ The frontend is built using **HTML, CSS, and JavaScript**, providing a clean, re
 
 ## 🌐 Live Demo
 
-👉 ([Add your deployed frontend link here – Netlify / Vercel / GitHub Pages](https://ilovemultitool.netlify.app/))
+👉 ((https://ilovemultitool.netlify.app/))
 
 ---
 
